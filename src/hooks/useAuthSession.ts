@@ -28,9 +28,7 @@ export function useAuthSession() {
     const startTime = Date.now();
 
     try {
-      const response = await fetch(
-        `http://localhost:3001/load-vault?username=${username}`
-      );
+      const response = await fetch(`/load-vault?username=${username}`);
       if (!response.ok) throw new Error("Vault no encontrado");
 
       const { data } = await response.json();

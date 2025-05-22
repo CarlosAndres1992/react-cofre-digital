@@ -16,7 +16,7 @@ export default function SideNavActions({
   onLogout,
 }: Props) {
   const handleDownloadCofre = () => {
-    fetch(`http://localhost:3001/load-vault?username=${username}`)
+    fetch(`/load-vault?username=${username}`)
       .then((res) => {
         if (!res.ok) throw new Error("No se pudo cargar el archivo.");
         return res.json();
@@ -32,9 +32,7 @@ export default function SideNavActions({
 
   const handleDownloadZip = async () => {
     try {
-      const response = await fetch(
-        `http://localhost:3001/load-vault?username=${username}`
-      );
+      const response = await fetch(`/load-vault?username=${username}`);
       if (!response.ok) throw new Error("No se pudo obtener el vault");
 
       const { data: encryptedJson } = await response.json();
