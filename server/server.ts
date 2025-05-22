@@ -69,16 +69,15 @@ app.get("/load-vault", async (req: Request, res: Response) => {
 // -------------------------
 // Servir frontend
 // -------------------------
-
 const distPath = path.resolve(__dirname, "../dist");
 app.use(express.static(distPath));
 
+// <--- ¡IMPORTANTE! esto va al final:
 app.get("*", (req, res) => {
   res.sendFile(path.join(distPath, "index.html"));
 });
 
 // -------------------------
-const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
-  console.log(`Servidor en http://localhost:${PORT}`);
+app.listen(process.env.PORT || 3001, () => {
+  console.log("🚀 Servidor en http://localhost:3001");
 });
