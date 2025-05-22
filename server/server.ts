@@ -79,5 +79,5 @@ app.get("*", (req, res) => {
 
 // -------------------------
 app.listen(process.env.PORT || 3001, () => {
-  console.log("🚀 Servidor en http://localhost:3001");
+  console.log("Servidor en http://localhost:3001");
 });
