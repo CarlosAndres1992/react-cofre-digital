@@ -21,7 +21,7 @@ export default function RegisterScreen({ onGoToLogin }: Props) {
       const encrypted = createEncryptedVault(username, password, { passwords: [] });
   
       try {
-        await fetch("http://localhost:3001/save-vault", {
+        await fetch("/save-vault", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({

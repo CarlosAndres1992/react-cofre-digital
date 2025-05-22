@@ -79,7 +79,7 @@ export default function NewPasswordForm({
         token
       );
 
-      await fetch("http://localhost:3001/save-vault", {
+      await fetch("/save-vault", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, data: encrypted }),
